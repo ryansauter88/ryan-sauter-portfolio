@@ -1,27 +1,37 @@
+/* Universal Selector for ensuring I have total control over padding and margins
+Added the bottom margin because most elements needed the breathing room. */
 * {
     padding: 0;
     margin: 0 0 10px 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* For the page's main color scheme, this does get overwritten a good bit,
+but having this here also ensures no random white borders or black text pop up. */
 body {
     background-color: darkcyan;
     color: rgb(201, 105, 67);
 }
 
+/* This installs the borders for the main dividers of the page. It also adds some more
+room for the title box. */
 h1 {
     border-right: 8px solid aliceblue;
 }
 
+/* Removes the underlines and colored text from all hyperlinks, and sets to a permanent color. */
 a {
     text-decoration: none;
     color: aliceblue;
 }
 
-.container {
+/* Just a small margin around the entire rest of the page for a cleaner look, content bumping against
+the viewport is not pleasant. */
+.pool {
     margin: 0% 2%;
 }
 
+/* Creates the flex container for the nav bar, for spacing and reorientating later. Also, style. */
 .bar {
     display: flex;
     background-color: darkslategrey;
@@ -29,6 +39,7 @@ a {
     margin-bottom: 0;
 }
 
+/* Aligns text for when the name wraps, keeps it from bumping the left viewport. Also, style, important for a prominent title! */
 h1.bar {
     text-align: right;
     font-size: 2.5em;
@@ -37,18 +48,20 @@ h1.bar {
     padding-left: 5%;
 }
 
+/* Ensures the two lists will be able to orient as a column WITH the headers, and not compete with space with the header based on viewport. */
 ul {
     display: flex;
     flex-basis: 70%;
 }
 
+/* Ensures the nav bar content box spaces nicely, doesn't bump viewport, but also isn't completely off in the distance from the title. */
 header ul {
     justify-content: space-around;
     text-align: center;
     margin-right: 8%;
 }
 
-/* do the flex things from the assignments where it collapses from columns to rows */
+/* Ensures all lists will be able to orient each item as a column. Also spaces the items with comfortable distance, and gives them a unique underline. */
 ul li {
     display: flex;
     justify-content: space-evenly;
@@ -59,11 +72,13 @@ ul li {
     border-bottom: 8px solid aliceblue; 
 }
 
+/* Ensures all "buckets" (see HTML comments) display the header and the other contents side by side, prepares for orientation shift. */
 .flex-bucket {
     display: flex;
     flex-direction: row;
 }
 
+/* All left side headers, gives them flex property so the container takes the space correctly and helps with creative aligning. */
 h1.flex {
     display: flex;
     flex: 1 2 20%;
@@ -73,18 +88,20 @@ h1.flex {
     text-align: right;
 }
 
+/* All right side "containers" (see HTML comments) for the main content. Ensures all the content will 
+wrap, resize, take up enough space. */
 .flex2 {
     display: flex;
     flex: 2 1 70%;
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 10px 15px;
-    min-width: 0;
-    min-height: 0;
-    overflow: hidden;
     font-size: 1.2em;
 }
 
+/* The hyperlink content boxes. Ensures the small app hyperlinks will fit 2x2, wrap correctly, 
+and let's them pop on the screen thanks to the gray border and space. Ensures the captions are
+stable by stating position type. */
 a.flex2 {
     display: flex;
     flex-direction: column;
@@ -96,6 +113,8 @@ a.flex2 {
     font-size: 0.7em;
 }
 
+/* This was so important; the min height, min width, and overflow properties
+allow the images to resize very smoothly. Also, ensures they fill the width of the above anchor containers. */
 img {
     min-width: 0;
     min-height: 0;
@@ -103,10 +122,12 @@ img {
     width: 100%;
 }
 
+/* Prominent application is prominent. Takes full width of container, and grows quickly. */
 #top-card {
     flex: 2 1 100%;
 }
 
+/* Styling the captions to go "over" the images. */
 .caption {
     position: absolute;
     background: lightslategray;
@@ -114,30 +135,38 @@ img {
     padding: 5px;
 }
 
+/* For the footer, messed with this value for spacing. */
 ul.flex2 {
     flex-basis: 70%;
 }
 
+/* Orientation shift time. Most of the styling does not change, and most of these are adjusting the 
+contents displayed in rows to display in columns and center on those columns, but most of the content
+was made with the idea of this shift in mind. */
 @media screen and (max-width: 600px) {
     
     .bar {
         flex-direction: column;
     }
 
+    /* The headers need to take center stage, and they their dividers beneath them now! */
     h1 {
         text-align: center;
         border-bottom: 8px solid aliceblue;
         border-right: none;
     }
     
+    /* The above statement was not impacting this alignment because it was overwritten before shifting orientations. */
     h1.bar {
         text-align: center;
     }
 
+    /* Necessary for spacing on desktop, not on mobile. */
     header ul {
         margin-right: 0;
     }
 
+    /* Same as above. */
     ul li {
         margin-left: 0;
     }
@@ -151,6 +180,8 @@ ul.flex2 {
         flex-direction: column;
     }
 
+    /* Because of the orientation change, the cards were all displaying on the same width... 
+    which is how they were differentiated before. This new restriction helps keep the top card prominent.*/
     a.flex2 {
         max-height: 90px;
     }

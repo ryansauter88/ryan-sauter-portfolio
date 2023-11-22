@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- Initializing the document, ensuring all links are correctly read, and putting a descriptive title. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,15 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css"></style>
 </head>
 
+<!-- My approach to this task was perhaps a bit hectic. My idea was to ensure that the flex
+properties would be able to act on the 'containers' themselves, as well as within each 'container' to actually
+wrap and resize the content properly. -->
 <body>
+
+    <!--  I created the "bar" class as the first container, completely independent
+of the rest of the document. This would contain the navigation links for the page and the title.
+I applied the "bar" class to both the outside 'container' as well as 
+the elements within to repeat some CSS properties to each element. -->
     <header class="bar">
         <h1 class="bar">Ryan Sauter</h1>
         <ul class="bar">
@@ -18,19 +26,32 @@
         </ul>
     </header>
 
+<!-- Luckily this image was resizing properly by itself, even on other device viewports, so no need to attach other attributes. -->
     <img src="./assets/images/RecentPhoto.jpg"/>
 
-    <div class="container">
-        <article id="about-me" class="flex-bucket">
+    <!-- This divider was created to be the giant overaching "pool" within which I would be able to properly shift
+        the "buckets" (flex-bucket) into a column orientation when on mobile. Those buckets house the groups of contents,
+        left 'container' with all the headings (flex) against the right 'container' where most of the content will be
+        (flex2), which will also need to reorient to columns. It also helps put some more distance (both in the code and the webpage) from the header. -->
+    <div class="pool">
+        <article id="about-me" class="flex-bucket"> 
+            <!-- oh btw Central Grading, this About Me text was not rendering to full size and I could not figure out why -->
             <h1 class="flex">About Me</h1>
             <p class="flex2">
                 My name is Ryan, and I am an aspiring Full-Stack Application Developer. From a young age, I took pride in my ability to solve increasingly complicated mathematic and logic problems, and was rewarded with a distinctive honor at my high-school graduation for my proficiency in mathematics. However, my perspective is broad and my skillset is wide. I graduated from Purdue University with a B.S. in Psychology, and minors in Classical Language Studies and Collaborative Leadership. For the past two years, I have worked in an event venue, promoted to a Shift Lead position halfway through my tenure. My range of experience is my greatest strength, as my soft skills have been strengthened and my approach to complex problems has been uniquely cultivated. Any team looking for a creative, motivated, and positive force for their projects should contact me at the links below!
             </p>
         </article>
 
+        <!-- Similar to the "bar" class, it helped remove some repetition with borders and things if I applied it to
+            both the containers and elements, so then I targeted specific elements in the CSS for finer tweaks. -->
         <main id="projects" class="flex-bucket">
             <h1 class="flex">Projects</h1>
             <section class="flex2">
+                
+                <!-- The main content was a doozy. The anchor element needs to contain each other component, so that it all
+                can be clicked to access the hyperlink. Because of this, I added another "div" which isn't the most semantic,
+                but I could not use the figurecaption element, I'm assuming because it does a particular action within a page.
+                Of course, that needs its own box for styling, trying to align two absolutely positioned elements would be impossible. -->
                 <a class="flex2" id="top-card" href="https://redknight88.github.io/marketing-site-refactor/">
                     <div class="caption">
                         <h2>Marketing Webpage</h2>
@@ -69,6 +90,10 @@
             </section>
         </main>
     
+        <!-- Again, same pattern as above. In the mockup, the footer wasn't its own block, so I did not put it outside
+        my overarching "pool" container. Good time to mention that I ID'd the headings on the page that hyperlink in the header,
+        as seen in this element. I decided to make each placeholder image also just navigate to the top, for the sake of 
+        placeholding for future apps. -->
         <footer id="contact-me" class="flex-bucket">
             <h1 class="flex">Contact Me</h1>
             <ul class="flex2">
