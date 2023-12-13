@@ -122,6 +122,10 @@ img {
     width: 100%;
 }
 
+.card-img {
+    max-height: 150px;
+}
+
 /* Prominent application is prominent. Takes full width of container, and grows quickly. */
 #top-card {
     flex: 2 1 100%;
