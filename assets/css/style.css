@@ -10,7 +10,7 @@ Added the bottom margin because most elements needed the breathing room. */
 but having this here also ensures no random white borders or black text pop up. */
 body {
     background-color: darkcyan;
-    color: rgb(201, 105, 67);
+    color: rgb(253, 163, 127);
 }
 
 /* This installs the borders for the main dividers of the page. It also adds some more
